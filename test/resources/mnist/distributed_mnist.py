@@ -130,6 +130,8 @@ def _parse_args():
 
 
 if __name__ == "__main__":
+    print('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TRAINING BEGINS =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')  # noqa
+
     args, unknown = _parse_args()
     tf.logging.set_verbosity(tf.logging.DEBUG)
     _handler = _logging.StreamHandler(_sys.stdout)
