@@ -146,8 +146,14 @@ if __name__ == "__main__":
         model_dir = args.model_dir
     else:
         model_dir = os.environ['SM_MODEL_DIR']
+
+    # https://github.com/tensorflow/tensorflow/issues/6698
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+
     mnist_classifier = tf.estimator.Estimator(
-        model_fn=cnn_model_fn, model_dir=model_dir)
+        model_fn=cnn_model_fn, model_dir=model_dir,
+        config=tf.estimator.RunConfig(session_config=config))
 
     # Set up logging for predictions
     # Log the values in the "Softmax" tensor with label "probabilities"
