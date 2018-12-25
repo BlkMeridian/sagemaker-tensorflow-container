@@ -148,6 +148,7 @@ if __name__ == "__main__":
         model_dir = os.environ['SM_MODEL_DIR']
 
     # https://github.com/tensorflow/tensorflow/issues/6698
+    print('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= SET CONFIG =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')  # noqa
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
 
